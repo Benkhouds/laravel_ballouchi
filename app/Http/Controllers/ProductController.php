@@ -14,4 +14,10 @@ class ProductController extends Controller
         return;
     }
 
+    public function store(Request $request){
+
+        
+
+    }
+
 }

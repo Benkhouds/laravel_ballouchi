@@ -28,4 +28,7 @@ Route::get('/prod/{product}', [ProductController::class, 'index']);
 Route::get('/order/{order}', [OrderController::class, 'index']);
 
 
+Route::get('/products',[ProductController::class],'store');
+Route::post('/products',[ProductController::class],'store');
+
 require __DIR__.'/auth.php';
