@@ -10,8 +10,9 @@ class ProductController extends Controller
 {
     //
     public function index(){
-        ddd(Product::with('subcategory', 'subcategory.category')->get()[0]->subcategory->category);
-        return;
+        $products = Product::with('subcategory', 'subcategory.category')->get();
+
+        return view('products.index',['products'=>$products]);
     }
 
 }

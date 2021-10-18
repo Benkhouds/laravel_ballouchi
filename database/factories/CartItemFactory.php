@@ -14,15 +14,20 @@ class CartItemFactory extends Factory
      */
     protected $model = CartItem::class;
 
+
     /**
      * Define the model's default state.
      *
      * @return array
+     * @throws \Exception
      */
-    public function definition()
+    public function definition() : array
     {
-        return [
-            //
-        ];
+
+            return [
+                'cart_id'=> 1,
+                'product_id'=>$this->faker->numberBetween(1,50) ,
+                'quantity'=>random_int(1,6)
+            ];
     }
 }

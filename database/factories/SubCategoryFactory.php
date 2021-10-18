@@ -19,11 +19,12 @@ class SubCategoryFactory extends Factory
      * Define the model's default state.
      *
      * @return array
+     * @throws \Exception
      */
-    public function definition()
+    public function definition() : array
     {
         return [
-            /*'category_id' => Category::class, in seeder*/
+            'category_id' => random_int(1,3),
             'label'=>$this->faker->unique()->word()
         ];
     }

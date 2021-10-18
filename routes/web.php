@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -24,8 +25,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::get('/prod/{product}', [ProductController::class, 'index']);
-Route::get('/order/{order}', [OrderController::class, 'index']);
+
+Route::get('/shop', [ProductController::class, 'index']);
+Route::get('/cart',[CartController::class, 'index']);
+Route::post('/cart/add',[CartController::class, 'store']);
 
 
 require __DIR__.'/auth.php';

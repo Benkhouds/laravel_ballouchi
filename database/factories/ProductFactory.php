@@ -18,15 +18,17 @@ class ProductFactory extends Factory
      * Define the model's default state.
      *
      * @return array
+     * @throws \Exception
      */
     public function definition()
     {
         return [
             /*subcategory in seeders*/
             /*isbn*/
+            'subcategory_id'=> random_int(1,20),
             'label'=>$this->faker->sentence(2),
-            'description'=>$this->faker->paragraphs(3),
-            'price'=>$this->faker->randomNumber(),
+            'description'=>$this->faker->paragraph(6),
+            'price'=>$this->faker->randomNumber(3),
             'inventory'=>$this->faker->randomNumber(3),
             'image'=>$this->faker->url()
         ];

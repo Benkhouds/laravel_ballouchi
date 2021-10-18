@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Listeners\CreateUserCart;
+use App\Models\CartItem;
+use App\Observers\CartItemObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -17,6 +20,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+            CreateUserCart::class
         ],
     ];
 
@@ -25,8 +29,8 @@ class EventServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot() : void
     {
-        //
+        CartItem::observe(CartItemObserver::class);
     }
 }

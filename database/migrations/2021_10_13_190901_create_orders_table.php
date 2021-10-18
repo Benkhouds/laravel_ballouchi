@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('address_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('address_id')->references('id')->on('addresses');
-            $table->decimal('subtotal');
+            $table->decimal('total');
             $table->timestamps();
         });
     }
