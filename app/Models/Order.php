@@ -9,11 +9,12 @@ class Order extends Model
 {
     use HasFactory;
 
-    public function address(): \Illuminate\Database\Eloquent\Relations\belongsTo
+    public function address(): \Illuminate\Database\Eloquent\Relations\hasOne
     {
-        return  $this->belongsTo(Address::class);
+        // return  $this->belongsTo(Address::class);
+        return  $this->hasOne(Address::class);
     }
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo //access order from user
     {
         return $this->belongsTo(User::class);
     }

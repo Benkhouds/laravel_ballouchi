@@ -22,7 +22,12 @@ class addressFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'region' => $this->faker->word(),
+            'city' => $this->faker->city(),
+            'postal_code' => $this->faker->numberBetween(1000, 4000),
+            'street' => $this->faker->streetAddress(),
+
+
         ];
     }
 }

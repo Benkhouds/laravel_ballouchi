@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Address;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class orderFactory extends Factory
@@ -21,8 +23,11 @@ class orderFactory extends Factory
      */
     public function definition()
     {
+        DB::table('order')
         return [
-            //
+            'user_id' => User::factory(),
+            'address_id' => Address::factory(),
+            'subtotal' => 20.3,
         ];
     }
 }
