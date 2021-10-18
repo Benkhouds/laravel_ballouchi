@@ -3,23 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Cart;
+use App\Models\CartItem;
 
 
 class CartItemController extends Controller
 {
-    public function store(Cart $cart, Request $request)
+    public function store( Request $request)
     {
 
-        // ddd((auth()->user()->cart->id));
-        // ddd(auth()->user()->cart);
-
+    //ddd((auth()->user()->cart->id));
+     $cart=   auth()->user()->cart;
+        //ddd($cart);
 
         // $request->validate(['cart' => 'required']);
-        $cart->cartItems()->create([
-            'cart_id' => auth()->user()->cart,
-            'product_id' => $request->input('product_id'),
-            'quantity' => $request->input('quantity'),
-        ]);
+       $cartItem = CartItem::create([
+           'cart_id' => $cart->id,
+           'product_id' => $request->input('product_id'),
+           'quantity' => $request->input('quantity'),
+       ]);
     }
 }

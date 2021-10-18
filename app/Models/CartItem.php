@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class CartItem extends Model
 {
-    protected $fillable = ['cart_id'];
+   // protected $fillable = ['cart_id'];
+    protected $guarded = [];
     use HasFactory;
 
     public function product(): \Illuminate\Database\Eloquent\Relations\BelongsTo
